@@ -1,6 +1,14 @@
-import pygame
 import math
 import time
+import subprocess
+import sys
+def install(package): #vajadusel installeerib puuduolevad moodulid
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+try:
+    import pygame
+except:
+    install("pygame")
+    import pygame
 
 # pygame.mixer.quit()
 pygame.mixer.pre_init(44100, -16, 2, 512)
